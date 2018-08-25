@@ -5,7 +5,7 @@ locals {
   region_val         = "${format("region = \"%s\"", data.aws_region.current.name)}"
   dynamodb_table_val = "${format("dynamodb_table = \"%s\"", aws_dynamodb_table.dynamodb_terraform_state_lock.id)}"
   key_val            = "key = \"example/path/to/state\""
-  values             = "${format("      %s\n      %s\n      %s\n      %s\n", local.bucket_val, local.region_val, local.dynamodb_table_val, local.key_val)}"
+  values             = "${format("    %s\n    %s\n    %s\n    %s\n", local.bucket_val, local.region_val, local.dynamodb_table_val, local.key_val)}"
 }
 
 output "state_s3_bucket_name" {
