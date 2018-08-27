@@ -7,6 +7,8 @@ resource "aws_kms_key" "state_key" {
 
   # let's try key rotation
   enable_key_rotation = true
+
+  tags = "${var.tags}"
 }
 
 # Create an S3 bucket so that we can store our state in
