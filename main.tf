@@ -46,8 +46,8 @@ resource "aws_dynamodb_table" "dynamodb_terraform_state_lock" {
   # https://www.terraform.io/docs/backends/types/s3.html#dynamodb_table
   hash_key = "LockID"
 
-  read_capacity  = "${var.lock_table_read_capacity}"
-  write_capacity = "${var.lock_table_write_capacity}"
+  # Use DynamoDB On Demand billing to reduce costs
+  billing_mode = "PAY_PER_REQUEST"
 
   attribute {
     name = "LockID"
